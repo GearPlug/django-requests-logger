@@ -1,0 +1,3 @@
+include README.md LICENSE
+recursive-include django_requests_logger/migrations/ *
+recursive-include docs/ *
