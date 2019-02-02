@@ -8,7 +8,7 @@ def read(fname):
 
 
 setup(name='django-requests-logger',
-      version='0.1.0',
+      version='0.1.1',
       include_package_data=True,
       license='MIT',
       description='A django integration for requests.',
