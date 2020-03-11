@@ -1,8 +1,8 @@
 import json
-
 from urllib.parse import parse_qs
 
 from django_requests_logger.models import RequestLog
+from django_requests_logger.signals import response_is_ok, response_is_not_ok
 
 
 def logger(response, data_masking=None, *args, **kwargs):
@@ -34,7 +34,11 @@ def logger(response, data_masking=None, *args, **kwargs):
 
         data['body'] = body
 
-    RequestLog.objects.create(**data)
+    obj = RequestLog.objects.create(**data)
+    if response.ok:
+        response_is_ok.send(sender=RequestLog, instance=obj)
+    else:
+        response_is_not_ok.send(sender=RequestLog, instance=obj)
 
 
 def masking(body, data_masking):

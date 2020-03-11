@@ -8,11 +8,12 @@ def read(fname):
 
 
 setup(name='django-requests-logger',
-      version='0.1.2',
+      version='0.1.3',
       include_package_data=True,
       license='MIT',
       description='A django integration for requests.',
       long_description=read('README.md'),
+      long_description_content_type="text/markdown",
       url='https://github.com/GearPlug/django-requests-logger',
       author='Miguel Ferrer',
       author_email='ingferrermiguel@gmail.com',
