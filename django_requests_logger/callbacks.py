@@ -6,7 +6,7 @@ from django_requests_logger.signals import response_is_ok, response_is_not_ok
 
 
 def logger(response, data_masking=None, *args, **kwargs):
-    if 'application/json' in response.headers['Content-Type']:
+    if 'Content-Type' in response.headers and 'application/json' in response.headers['Content-Type']:
         content = response.json()
     else:
         content = response.text
