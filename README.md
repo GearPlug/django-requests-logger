@@ -19,8 +19,12 @@ Run `python manage.py migrate`
 ```
 import requests
 from django_requests_logger.callbacks import logger as requests_logger
+from functools import partial
 
-requests.get('https://httpbin.org/', hooks={'response': requests_logger})
+# If you want to capture only errors (HTTP 4XX client errors and 5XX server errors), then pass only_errors argument set to True.
+
+hooks = {"response": partial(requests_logger, only_errors=True)}
+requests.get('https://httpbin.org/', hooks=hooks)
 ```
 
 ## TODO
