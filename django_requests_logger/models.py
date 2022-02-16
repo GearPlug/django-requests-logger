@@ -1,6 +1,10 @@
 from django.db import models
-from django.utils.translation import ugettext_lazy as _
+from django.utils import version
 
+if version.get_version() < '4.0.0':
+    from django.utils.translation import ugettext_lazy as _
+else:
+    from django.utils.translation import gettext_lazy as _
 
 class RequestLog(models.Model):
     method = models.CharField(_('method'), max_length=10, help_text=_('request method'))
