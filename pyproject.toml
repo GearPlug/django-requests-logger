@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "django-requests-logger"
+version = "1.0.0"
+description = "A django integration for requests."
+authors = ["Miguel Ferrer <ingferrermiguel@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "django_requests_logger"}]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+requests = "^2.26.0"
+django = "^3.2.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
